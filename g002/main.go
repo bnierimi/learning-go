@@ -1,47 +1,57 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"errors"
+)
 
 func main(){
-	// Integers: default value -> 0
-	var intNum int = 20
-	fmt.Println(intNum)
+	name := "Mia"
+	print(name)
 
-	// Floats: default value -> 0
-	var floatNum = 3.3
-	fmt.Println(floatNum)
-	
-	// Can't add the two types together so we convert one of them
-	var addition = floatNum + float64(intNum)
-	fmt.Println(addition)
-	
-	var division = floatNum / float64(intNum)
-	fmt.Println(division)
-	
-	var multiplication = int(floatNum) % intNum
-	fmt.Println(multiplication)
+	result, remainder, err := div(4, 2)
 
-	// Strings: default value -> ""
-	var my_name = "Radiance"
-	fmt.Println(my_name)
-	
-	var my_story = `
-	Well you know how it goes.....`
-	fmt.Println(my_story)
+	// // Using if statements to handle errors
+	// if err != nil {
+	// 	fmt.Printf(err.Error())
+	// } else if remainder == 0 {
+	// 	fmt.Printf("Result: %v", result)
+	// } else {
+		// 	fmt.Printf("Result: %v and Remainder: %v", result, remainder)
+		// }
+		
+	// // Using switch-case statements to handle errors
+	switch {
+	case err != nil:
+		fmt.Printf(err.Error())
+	case remainder == 0:
+		fmt.Printf("Result: %v", result)
+	default:
+		fmt.Printf("Result: %v and Remainder: %v", result, remainder)
+	}
 
-	// Booleans: default value -> false
-	var is_alive = true
-	fmt.Println(is_alive)
+	switch remainder {
+	case 0:
+		fmt.Printf("The division was smooth")
+	case 1, 2:
+		fmt.Printf("The division was close")
+	default:
+		fmt.Printf("The division was not close")
+		
+	}
+}
 
-	// Works pretty fine
-	my_age := 12
-	fmt.Println(my_age)
+func print(value string){
+	fmt.Println(value)
+}
 
-	var num1, num2 int = 1, 2
-	// num1, num2 := 1, 2      // also
-	fmt.Println(num1, num2)
-
-	// Constants
-	const MAX_MEMORY = 31.8
-	fmt.Println(MAX_MEMORY)
+func div(numerator int, denominator int) (int, int, error) {
+	var err error
+	if denominator == 0 {
+		err = errors.New("(x) Error: Cannot divide by Zero. Zero can't be the denominator")
+		return 0, 0, err
+	}
+	result := numerator / denominator
+	remainder := numerator % denominator
+	return result, remainder, err
 }
