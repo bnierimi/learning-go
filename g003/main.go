@@ -19,7 +19,7 @@ func main(){
 	intArray2 := [...]int{1, 2, 3}
 	fmt.Println(intArray2)
 
-	// SLices: are Arrays with no fixed length
+	// Slices: are Arrays with no fixed length
 	var intSlice []int = []int{0, 9, 8}
 	fmt.Println(intSlice)
 	intSlice = append(intSlice, 7)
