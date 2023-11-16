@@ -2,20 +2,21 @@ package main
 
 import (
 	"fmt"
-	"bufio"
-	"os"
-	"log"
+	// "bufio"
+	// "os"
+	// "log"
 )
 
-func input() string {
-	var reader = bufio.NewReader(os.Stdin)
-	var line, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf(">> %v", line)
-	return line
-}
+// func input() string {
+// 	var scanner = bufio.NewScanner(os.Stdin)
+// 	scanner.Scan()
+// 	var err = scanner.Err()
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Printf(">> %v", scanner.Text())
+// 	return scanner.Text()
+// }
 
 func main() {
 	fmt.Println("Welcome to my quiz game!")
@@ -37,15 +38,14 @@ func main() {
 	}
 
 	fmt.Printf("Which is better, [O]ne Piece or [T]okyo Ghoul? ")
-	var answer = input()
-	// fmt.Scan(&answer)
-	fmt.Println(answer)
+	var answer string
+	fmt.Scan(&answer)
 
-	// if answer == "O" {
-	// 	fmt.Println(":) Correct!")
-	// } else if answer == "o" {
-	// 	fmt.Println(":) Correct!")
-	// } else {
-	// 	fmt.Println(":( Wrong!")
-	// }
+	if answer == "O" {
+		fmt.Println(":) Correct!")
+	} else if answer == "o" {
+		fmt.Println(":) Correct!")
+	} else {
+		fmt.Println(":( Wrong!")
+	}
 }
