@@ -52,8 +52,8 @@ func main() {
 		carModel: "Elantra",
 		engine: GasEngine{
 			gallons: 13.2,
-			mpg: 38
-		}
+			mpg: 38,
+		},
 	}
 	
 	var electricCar = Car[ElectricEngine]{
@@ -61,8 +61,8 @@ func main() {
 		carModel: "Model 4.5",
 		engine: ElectricEngine{
 			kwh: 47.8,
-			mpkwh: 5.78
-		}
+			mpkwh: 5.78,
+		},
 	}
 
 	fmt.Println(gasCar)
